@@ -1,0 +1,13 @@
+package com.startservlets;
+import com.databasehandler.DataFetcher;
+public class Validator {
+
+	public static boolean isvalid(String email,String password) {
+		String DataBasePassword = DataFetcher.signinDBCfetchpassword(email);
+		if(password.equals(DataBasePassword)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+}
