@@ -1,0 +1,28 @@
+package com.startservlets;
+
+import java.io.IOException;
+
+import com.databasehandler.DataFetcher;
+
+
+@WebServlet("/SignupServlet")
+public class SignupServlet extends HttpServlet{
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		try {
+			String name  = request.getParameter("name");
+			String email = request.getParameter("email");
+			String gender = request.getParameter("gender");
+			String password = request.getParameter("password");
+			String repassword = request.getParameter("repassword");
+			DataFetcher dataFetcher = new DataFetcher();
+			dataFetcher.addcustomer(name, email, gender, password, repassword);
+			response.sendRedirect("signin.jsp");
+
+		}catch(Exception e) {
+			System.out.println(e);
+			//System.exit(0);
+		}
+	}
+}
