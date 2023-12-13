@@ -1,0 +1,85 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index Page</title>
+
+<style>
+ body{
+	background-image:url("https://tse1.mm.bing.net/th?id=OIP.mzXI45so0f-cSxWxiyB07QHaEK&pid=Api&P=0&h=180");
+	background-size:cover;	
+}
+ 
+ /* body{
+	background-image:url("https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg");
+    background-repeat: no-repeat;
+	background-size:1260px 750px;
+} */
+h1{
+	color:white;
+	padding:20px;
+}
+nav{
+	padding:5px;
+	margin-left:45px;
+	margin-right:45px;
+	color:blue;
+	border:1px solid blue;
+	background-color:white;
+}
+nav a{
+	margin:15px;
+	text-decoration:none;
+	color:#009698;
+	font-size:20px;
+}
+button{
+	margin-right:20px;
+}
+nav span{
+	margin-left:50px;
+}
+
+div{
+   border:0px solid blue;
+   margin:10px 650px 50px 50px;
+   box-sizing:border-box;
+   background-color:white;
+   }
+input{
+	font-size:20px;
+	font-color:1px solid white;
+}
+.heading{
+	text-align:center;
+	margin:3px;
+}
+.con{
+	padding:20px;
+	background-color: white;
+	border:10px solid green;	
+}
+</style>
+
+
+</head>
+<body>
+	<h1 class="heading">Web Application</h1>
+	<nav>
+	<b>
+	<a href="#">Dash Board</a>
+	<a href="#">Home</a>
+	<a href="#">Documents</a>
+	<a href="#">Education</a>
+	<a href="#">Source</a>
+	</b>
+	<span>
+	<input type="text" placeholder="Search">
+	<input type="button" value="search">
+	</span>
+	</nav>
+</body>
+
+</html>
