@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SignUp Page</title>
+<style>
+body{
+	background-image:url("https://tse1.mm.bing.net/th?id=OIP.mzXI45so0f-cSxWxiyB07QHaEK&pid=Api&P=0&h=180");
+	background-size:cover;	 
+	/* background-image:url("https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg");
+    background-repeat: no-repeat;
+	background-size:1260px 750px; */
+}
+.heading{
+	color:white;
+	text-align:center;
+} 
+form{
+ padding:50px;
+ padding-top:25px;
+ font-size:20px;
+ border:blue;
+ border-radius:20px;
+}
+div{
+   border:0px solid blue;
+   margin:10px 300px 10px 300px;
+   box-sizing:border-box;
+   background-color:white;
+   border-radius:40px;
+   }
+input,button{
+	font-size:20px;
+	color:1px solid white;
+	border-radius:10px;
+}
+.checkbox{
+	color:red;
+}
+h2{
+	color: white;
+	background-color: lightskyblue;
+	text-align: center;
+	border-radius:30px;
+}
+</style>
+<script type="text/javascript">
+	
+	
+</script>
+</head>
+<body>
+	<h1 class="heading">Web Application</h1>
+    <div class="total">
+	<form action="SignupServlet" method="post">
+		<h2>Registration Form</h2>
+		
+		<b>
+		Full Name : <br>
+		<input type="text" placeholder="enter full name" autocomplete="off" name="name" required><br><br>
+		E-mail : <br>
+		<input type="email" placeholder="email:example@gmail.com" autocomplete="off" name="email" required><br><br>
+		Gender : <br>
+		<input type="radio" name="gender" value="male" required>Male
+		<input type="radio" name="gender" value="female" required>Female<br><br>
+		Password : <br>
+		<input type="password" placeholder="enter password" autocomplete="off" name="password" required><br><br>
+		Conform Password : <br>
+		<input type="password" placeholder="re-enter password" autocomplete="off" name="repassword" required><br><br>
+		<input type="checkbox"><label class="checkbox">Please check above details are correct!</label><br><br>
+		<input type="submit" value="Signup"><br><br>
+		<a href="signin.jsp">Already registered! click hear to signin</a>
+		</b>
+
+	</form>
+	</div>
+</body>
+</html>
