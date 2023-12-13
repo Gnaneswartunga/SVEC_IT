@@ -1,0 +1,90 @@
+package com.databasehandler;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DataFetcher {
+
+	static String mysqldriver = "com.mysql.jdbc.Driver";
+	static String mysqldriver2 = "com.mysql.cj.jdbc.Driver";
+	static String mysqlurl = "jdbc:mysql://localhost:3306/eclipse";
+	static String mysqluser = "root";
+	static String mysqlpassword = "SVECIT50";
+
+	public static String signinDBCfetchpassword(String email) {
+
+		String sql = "select password from eclipse.registrations where email=?";
+		String DataBasePassword = "";
+		try {
+			Class.forName(mysqldriver2);
+			Connection con = DriverManager.getConnection(mysqlurl,mysqluser,mysqlpassword);
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1,email);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			DataBasePassword = rs.getString(1);
+		}catch(Exception e) {
+			System.out.println("login issues");
+			e.printStackTrace();
+		}
+		return DataBasePassword;
+	}
+
+	public static void signupDBCfetchpassword(String name, String email, String password,String repassword) throws Exception {
+		try {
+			Class.forName(mysqldriver2);
+			Connection con = DriverManager.getConnection(mysqlurl,mysqluser,mysqlpassword);
+			PreparedStatement ps = con.prepareStatement("insert into eclipse.registrations(name,email,password,repassword) values(?,?,?,?);");
+
+			ps.setString(1,name);
+			ps.setString(2,email);
+			ps.setString(3,password);
+			ps.setString(4,repassword);
+
+			int rowsAffected = ps.executeUpdate();
+
+			if (rowsAffected != 1) {
+                throw new SQLException("Insert failed");
+            }
+
+			con.close();
+			ps.close();
+		}catch(SQLException | ClassNotFoundException  e){
+			throw e;
+		}
+	}
+
+	@SuppressWarnings("finally")
+	public String addcustomer(String name, String email, String gender, String password,String repassword) throws Exception {
+
+		String regstatus = "";
+		try {
+			Class.forName(mysqldriver2);
+			Connection con = DriverManager.getConnection(mysqlurl,mysqluser,mysqlpassword);
+			PreparedStatement ps = con.prepareStatement("insert into eclipse.registrations(name,email,gender,password,repassword) values(?,?,?,?,?);");
+
+			ps.setString(1,name);
+			ps.setString(2,email);
+			ps.setString(3,gender);
+			ps.setString(4,password);
+			ps.setString(5,repassword);
+
+			int rowsAffected = ps.executeUpdate();
+            regstatus = "success";
+			if (rowsAffected != 1) {
+                throw new SQLException("Insert failed");
+            }
+
+			con.close();
+			ps.close();
+		}catch(SQLException | ClassNotFoundException  e){
+			throw e;
+		}finally {
+			return regstatus;
+		}
+
+	}
+}
